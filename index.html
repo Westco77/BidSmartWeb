@@ -2,10 +2,216 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Página Web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BidSmart - Notificaciones de Licitaciones Mercado Público</title>
+    <meta name="description" content="Servicio de notificación en tiempo real de licitaciones y compras ágiles de Mercado Público. Nunca pierdas una oportunidad.">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>¡Bienvenidos a BIDSMART</h1>
-    <p>Estamos en construcción, para información directa hablanos a nuestro Whatsapp: +56 9 7265 2949</p>
+    <!-- Header/Navegación -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="#inicio" class="logo-link">
+                        <div class="logo-container">
+                            <img src="images/logo-bidsmart.png" alt="BidSmart" class="logo-img">
+                        </div>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicio">Servicio</a></li>
+                    <li><a href="#precios">Precios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Alertas en Tiempo Real de Mercado Público</h1>
+            <p>Recibe notificaciones instantáneas de licitaciones y compras ágiles según tus rubros de interés</p>
+            <div class="hero-buttons">
+                <a href="#precios" class="btn-primary">Comenzar Ahora</a>
+                <a href="#servicio" class="btn-secondary">Cómo Funciona</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Servicio Único -->
+    <section id="servicio" class="services">
+        <div class="container">
+            <h2>Nuestro Servicio</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔔</div>
+                    <h3>Notificaciones en Tiempo Real</h3>
+                    <p>Recibe alertas inmediatas cuando se publiquen licitaciones en Mercado Público que coincidan con tus rubros de interés</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏷️</div>
+                    <h3>Búsqueda por Rubros</h3>
+                    <p>Selecciona tus rubros de interés y nuestro sistema buscará automáticamente las oportunidades relevantes para ti</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Compras Ágiles Incluidas</h3>
+                    <p>Monitoreamos tanto licitaciones tradicionales como compras ágiles para maximizar tus oportunidades</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📧</div>
+                    <h3>Email + Telegram</h3>
+                    <p>Recibe las alertas por email o mediante Telegram para mayor inmediatez según tu preferencia</p>
+                </div>
+            </div>
+            
+            <!-- Proceso de Funcionamiento -->
+            <div class="process-steps">
+                <h3>¿Cómo Funciona?</h3>
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>Selecciona Rubros</h4>
+                        <p>Elige los rubros de Mercado Público que te interesan</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>Monitoreo Automático</h4>
+                        <p>Nuestro sistema monitorea Mercado Público 24/7</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>Notificación Inmediata</h4>
+                        <p>Recibes alertas instantáneas de oportunidades en tus rubros</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h4>Postula a Tiempo</h4>
+                        <p>Participa en las licitaciones con ventaja de tiempo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Precios Única -->
+    <section id="precios" class="pricing">
+        <div class="container">
+            <h2>Plan de Servicio</h2>
+            <div class="pricing-single">
+                <div class="pricing-main-card">
+                    <h3>Plan Completo</h3>
+                    <div class="price-main">$1.990<span>/mes</span></div>
+                    <div class="price-additional">
+                        <span class="additional-text">Cuenta adicional: $390/mes</span>
+                    </div>
+                    <ul class="features-list">
+                        <li>✅ Alertas ilimitadas</li>
+                        <li>✅ Notificaciones por Email</li>
+                        <li>✅ Notificaciones por Telegram (Opcional)</li>
+                        <li>✅ Licitaciones tradicionales</li>
+                        <li>✅ Compras ágiles</li>
+                        <li>✅ Búsqueda por rubros de interés</li>
+                        <li>✅ Soporte técnico incluido</li>
+                    </ul>
+                    <div class="pricing-buttons">
+                        <a href="#contacto" class="btn-primary large-btn">Contratar Plan Principal</a>
+                        <a href="#contacto" class="btn-secondary">Agregar Cuenta Adicional</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Información adicional -->
+            <div class="pricing-info">
+                <div class="info-card">
+                    <h4>¿Necesitas múltiples cuentas?</h4>
+                    <p>Ideal para empresas que requieren monitorear diferentes rubros por área o departamento.</p>
+                    <ul>
+                        <li>Primera cuenta: $1.990/mes</li>
+                        <li>Cada cuenta adicional: $390/mes</li>
+                        <li>Todas las cuentas incluyen las mismas funcionalidades</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2>Contáctanos</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>¿Listo para no perder oportunidades?</h3>
+                    <p>Comienza hoy mismo a recibir alertas de licitaciones y compras ágiles de Mercado Público.</p>
+                    <div class="contact-details">
+                        <p><strong>Email:</strong> contacto@bidsmart.cl</p>
+                        <p><strong>Teléfono:</strong> +56 9 7265 2949</p>
+                        <p><strong>Horario:</strong> Lunes a Viernes 10:00 - 20:00</p>
+                    </div>
+                </div>
+                <form id="contactForm" class="contact-form" action="https://formspree.io/f/xldppyeb" method="POST">
+                    <input type="text" name="nombre" placeholder="Nombre completo" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="tel" name="telefono" placeholder="Teléfono">
+                    <select name="servicio_interes">
+                        <option value="">Tipo de servicio de interés</option>
+                        <option value="principal">Plan Principal ($1.990/mes)</option>
+                        <option value="adicional">Cuenta Adicional ($390/mes)</option>
+                        <option value="multiple">Múltiples Cuentas</option>
+                        <option value="contacto">Contacto</option>
+                    </select>
+                    <textarea name="rubros_interes" placeholder="¿Qué rubros de Mercado Público te interesan?, Indicanos cuales son tus palabras claves" rows="4"></textarea>
+                    
+                    <!-- CORREGIDO: Quita las comillas dobles de _replyto -->
+                    <input type="hidden" name="_subject" value="Nueva solicitud de servicio - BidSmart">
+                    <input type="hidden" name="_replyto" value="contacto@bidsmart.cl">
+                    
+                    <button type="submit" class="btn-primary">Solicitar Servicio</button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="logo-text">BidSmart</h3>
+                    <p>Tu servicio confiable de notificación de licitaciones y compras ágiles de Mercado Público.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicio</h4>
+                    <ul>
+                        <li><a href="#servicio">Cómo Funciona</a></li>
+                        <li><a href="#precios">Plan y Precios</a></li>
+                        <li><a href="#contacto">Registrarse</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="docs/terminos-condiciones.pdf" target="_blank">Términos y Condiciones</a></li>
+                         <li><a href="docs/politica-privacidad.pdf" target="_blank">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BidSmart. Servicio de notificación de Mercado Público. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

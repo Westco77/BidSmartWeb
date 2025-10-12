@@ -1,0 +1,592 @@
+/* === COLORES PRINCIPALES === */
+:root {
+  --color-primario: #2563eb;
+  --color-primario-oscuro: #1d4ed8;
+  --color-secundario: #059669;
+  --color-texto: #1e293b;
+  --color-fondo: #f8fafc;
+  --color-blanco: #ffffff;
+  --color-borde: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--color-texto);
+    padding-top: 80px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* === NAVBAR Y LOGO === */
+.navbar {
+    background: var(--color-blanco);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* === LOGO - VERSIÓN EXTRA GRANDE === */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    height: 75px; /* Casi ocupa toda la navbar */
+}
+
+.logo-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.logo-img {
+    height: 75px !important; /* MUCHO más grande */
+    width: auto !important;
+    max-width: 300px !important; /* Ancho máximo aumentado */
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* Elimina el texto del logo si existe */
+.logo-text {
+    display: none;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--color-texto);
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 10px 0;
+}
+
+.nav-menu a:hover {
+    color: var(--color-primario);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--color-texto);
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* === HERO SECTION === */
+.hero {
+    background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-primario-oscuro) 100%);
+    color: var(--color-blanco);
+    padding: 120px 0 100px;
+    text-align: center;
+    margin-top: -80px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    margin-top: 80px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: var(--color-blanco);
+    color: var(--color-primario);
+}
+
+.btn-primary:hover {
+    background: #f8fafc;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--color-blanco);
+    border: 2px solid var(--color-blanco);
+}
+
+.btn-secondary:hover {
+    background: var(--color-blanco);
+    color: var(--color-primario);
+}
+
+/* Secciones generales */
+section {
+    padding: 80px 0;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--color-texto);
+}
+
+/* Servicios */
+.services {
+    background: var(--color-fondo);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.service-card {
+    background: var(--color-blanco);
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    color: var(--color-texto);
+}
+
+/* Proceso de Funcionamiento */
+.process-steps {
+    background: var(--color-blanco);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.process-steps h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: var(--color-primario);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.step {
+    text-align: center;
+    padding: 20px;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--color-primario);
+    color: var(--color-blanco);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 20px;
+}
+
+.step h4 {
+    margin-bottom: 10px;
+    color: var(--color-texto);
+}
+
+/* Precios - Diseño Único */
+.pricing-single {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.pricing-main-card {
+    background: var(--color-blanco);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    border: 3px solid var(--color-primario);
+    max-width: 500px;
+    width: 100%;
+}
+
+.pricing-main-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--color-texto);
+}
+
+.price-main {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: var(--color-primario);
+    margin-bottom: 10px;
+}
+
+.price-main span {
+    font-size: 1.2rem;
+    color: #64748b;
+}
+
+.price-additional {
+    margin-bottom: 30px;
+}
+
+.additional-text {
+    color: #64748b;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.features-list {
+    list-style: none;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.features-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-borde);
+    font-size: 1.1rem;
+}
+
+.features-list li:last-child {
+    border-bottom: none;
+}
+
+.pricing-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.large-btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+}
+
+/* Información adicional de precios */
+.pricing-info {
+    display: flex;
+    justify-content: center;
+}
+
+.info-card {
+    background: var(--color-fondo);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+}
+
+.info-card h4 {
+    margin-bottom: 15px;
+    color: var(--color-primario);
+}
+
+.info-card ul {
+    list-style: none;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.info-card li {
+    padding: 8px 0;
+    color: #64748b;
+}
+
+/* Contacto */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.contact-info h3 {
+    margin-bottom: 20px;
+    color: var(--color-texto);
+}
+
+.contact-details {
+    margin-top: 30px;
+}
+
+.contact-details p {
+    margin-bottom: 15px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid var(--color-borde);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    align-self: flex-start;
+}
+
+/* Footer */
+footer {
+    background: var(--color-texto);
+    color: var(--color-blanco);
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 20px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--color-blanco);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #374151;
+    color: #9ca3af;
+}
+
+/* Estilos para mensajes del formulario */
+.form-message {
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+}
+
+.form-message.success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+    display: block;
+}
+
+.form-message.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    display: block;
+}
+
+.form-loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.btn-primary:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-primary:disabled:hover {
+    transform: none;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+    
+    .navbar {
+        height: 70px;
+    }
+    
+    .nav-logo {
+        height: 50px;
+    }
+    
+    .logo-img {
+        height: 45px;
+        max-width: 180px;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--color-blanco);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        padding: 20px 0;
+        gap: 0;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+    }
+    
+    .nav-menu a {
+        display: block;
+        padding: 15px 0;
+        width: 100%;
+    }
+    
+    .hero {
+        padding: 100px 0 80px;
+        margin-top: -70px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+        margin-top: 70px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .process-steps {
+        padding: 30px 20px;
+    }
+    
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pricing-main-card {
+        padding: 30px 20px;
+    }
+    
+    .price-main {
+        font-size: 2.8rem;
+    }
+}
+
+/* Estilos para enlaces de documentos PDF */
+.footer-section a[href$=".pdf"] {
+    position: relative;
+    padding-left: 20px;
+}
+
+.footer-section a[href$=".pdf"]::before {
+    content: "📄";
+    position: absolute;
+    left: 0;
+    margin-right: 5px;
+}
