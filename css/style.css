@@ -487,38 +487,42 @@ footer {
     transform: none;
 }
 
-/* === RESPONSIVE === */
+/* === RESPONSIVE MÓVIL - VERSIÓN AGRESIVA === */
 @media (max-width: 768px) {
-    body {
-        padding-top: 70px;
-    }
-    
     .navbar {
         height: 70px;
-        padding: 0 15px; /* Agregar padding para mejor espaciado */
+        padding: 0 10px !important;
     }
     
     .nav-container {
-        padding: 0 15px; /* Reducir padding en móvil */
+        padding: 0 10px !important;
+        min-width: 100% !important;
+        justify-content: space-between !important;
     }
     
-    /* LOGO EN MÓVIL - CORREGIDO */
+    /* LOGO - FORZAR TAMAÑO FIJO */
     .nav-logo {
-        height: 50px;
-        max-width: 150px; /* Límite de ancho */
-        overflow: hidden; /* Previene que se salga */
+        height: 50px !important;
+        width: 150px !important;
+        min-width: 120px !important;
+        max-width: 150px !important;
+        overflow: hidden !important;
+        display: flex !important;
+        align-items: center !important;
     }
     
     .logo-img {
-        height: 45px !important; /* Tamaño balanceado */
-        max-width: 140px !important; /* Máximo ancho */
+        height: 40px !important;
+        max-width: 130px !important;
         width: auto !important;
         object-fit: contain !important;
     }
     
+    /* HAMBURGUER - ASEGURAR ESPACIO */
     .hamburger {
-        display: flex;
-        margin-left: 10px; /* Espacio del logo */
+        display: flex !important;
+        margin-left: auto !important;
+        min-width: 30px !important;
     }
     
     .nav-menu {
@@ -613,5 +617,6 @@ footer {
     margin-right: 5px;
 
 }
+
 
 
