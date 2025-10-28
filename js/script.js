@@ -1,4 +1,4 @@
-// Navegación móvil
+// Navegación móvil mejorada
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
@@ -27,7 +27,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Efecto de aparición al hacer scroll
+// Efecto de aparición mejorado al hacer scroll
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -38,6 +38,9 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
+            if (entry.target.classList.contains('step')) {
+                entry.target.style.transitionDelay = '0.2s';
+            }
         }
     });
 }, observerOptions);
@@ -45,9 +48,27 @@ const observer = new IntersectionObserver((entries) => {
 // Aplicar a las secciones
 document.querySelectorAll('.service-card, .step, .pricing-main-card, .info-card').forEach(el => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
+    el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
+});
+
+// Animación adicional para elementos del hero
+const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, { threshold: 0.5 });
+
+// Aplicar animación a elementos del hero
+document.querySelectorAll('.hero-content h1, .hero-content p, .hero-buttons').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    heroObserver.observe(el);
 });
 
 // Configuración del Formulario de Contacto con Formspree
@@ -105,31 +126,39 @@ if (contactForm) {
     });
 }
 
-// Validación en tiempo real
+// Validación en tiempo real mejorada
 const formInputs = document.querySelectorAll('#contactForm input, #contactForm select, #contactForm textarea');
 formInputs.forEach(input => {
     input.addEventListener('input', function() {
         if (this.checkValidity()) {
             this.style.borderColor = '#10b981';
+            this.style.boxShadow = '0 0 0 3px rgba(16, 185, 129, 0.1)';
         } else {
             this.style.borderColor = '#ef4444';
+            this.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
         }
+    });
+    
+    input.addEventListener('blur', function() {
+        this.style.boxShadow = 'none';
     });
 });
 
-// Cambiar estilo de navbar al hacer scroll
+// Cambiar estilo de navbar al hacer scroll (mejorado)
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 100) {
-        navbar.style.background = 'var(--color-blanco)'; // Blanco sólido
-        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)'; // Sombra más pronunciada
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.backdropFilter = 'blur(10px)';
+        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
     } else {
         navbar.style.background = 'var(--color-blanco)';
+        navbar.style.backdropFilter = 'none';
         navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
     }
 });
 
-// Asegurar que el hero section tenga espacio correcto al cargar
+// Ajuste inicial del hero section
 document.addEventListener('DOMContentLoaded', function() {
     const hero = document.querySelector('.hero');
     const navbar = document.querySelector('.navbar');
@@ -140,4 +169,20 @@ document.addEventListener('DOMContentLoaded', function() {
         hero.style.marginTop = `-${navbarHeight}px`;
         document.querySelector('.hero-content h1').style.marginTop = `${navbarHeight}px`;
     }
+    
+    // Animación inicial escalonada para elementos del hero
+    setTimeout(() => {
+        document.querySelector('.hero-content h1').style.opacity = '1';
+        document.querySelector('.hero-content h1').style.transform = 'translateY(0)';
+    }, 300);
+    
+    setTimeout(() => {
+        document.querySelector('.hero-content p').style.opacity = '1';
+        document.querySelector('.hero-content p').style.transform = 'translateY(0)';
+    }, 600);
+    
+    setTimeout(() => {
+        document.querySelector('.hero-buttons').style.opacity = '1';
+        document.querySelector('.hero-buttons').style.transform = 'translateY(0)';
+    }, 900);
 });
