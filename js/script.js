@@ -186,3 +186,4 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.hero-buttons').style.transform = 'translateY(0)';
     }, 900);
 });
+
