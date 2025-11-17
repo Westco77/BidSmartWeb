@@ -1,4 +1,15 @@
-// Navegación móvil mejorada
+// Preloader
+window.addEventListener('load', function() {
+    const preloader = document.querySelector('.preloader');
+    setTimeout(() => {
+        preloader.classList.add('fade-out');
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500);
+    }, 1000);
+});
+
+// Navegación móvil
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
@@ -7,89 +18,101 @@ hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-// Cerrar menú al hacer clic en un enlace
-document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
+// Cerrar menú al hacer clic en enlace
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    });
+});
 
-// Scroll suave para enlaces de anclaje
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Animaciones de scroll con AOS
+document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
+});
+
+// Smooth scroll para enlaces internos
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 80;
+            
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
             });
         }
     });
 });
 
-// Efecto de aparición mejorado al hacer scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+// Efecto de revelado progresivo para elementos
+const revealElements = document.querySelectorAll('.benefit-card, .pricing-card, .why-card');
 
-const observer = new IntersectionObserver((entries) => {
+const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
-            if (entry.target.classList.contains('step')) {
-                entry.target.style.transitionDelay = '0.2s';
-            }
         }
     });
-}, observerOptions);
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
 
-// Aplicar a las secciones
-document.querySelectorAll('.service-card, .step, .pricing-main-card, .info-card').forEach(el => {
+revealElements.forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
+    revealObserver.observe(el);
 });
 
-// Animación adicional para elementos del hero
-const heroObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+// Efecto de hover mejorado para tarjetas
+document.querySelectorAll('.benefit-card, .pricing-card, .why-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
     });
-}, { threshold: 0.5 });
-
-// Aplicar animación a elementos del hero
-document.querySelectorAll('.hero-content h1, .hero-content p, .hero-buttons').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    heroObserver.observe(el);
+    
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+    });
 });
 
-// Configuración del Formulario de Contacto con Formspree
+// Manejo del formulario de contacto
 const contactForm = document.getElementById('contactForm');
-const formMessage = document.getElementById('formMessage');
-
 if (contactForm) {
     contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        // Mostrar estado de carga
         const submitButton = this.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
+        
+        // Mostrar estado de carga
         submitButton.textContent = 'Enviando...';
         submitButton.disabled = true;
-        this.classList.add('form-loading');
         
         try {
             const formData = new FormData(this);
-            
-            // Enviar datos a Formspree
             const response = await fetch(this.action, {
                 method: 'POST',
                 body: formData,
@@ -100,90 +123,177 @@ if (contactForm) {
             
             if (response.ok) {
                 // Éxito
-                formMessage.textContent = '¡Gracias! Tu solicitud ha sido enviada. Te contactaremos pronto.';
-                formMessage.className = 'form-message success';
+                showNotification('¡Mensaje enviado con éxito! Te contactaremos pronto.', 'success');
                 this.reset();
             } else {
                 throw new Error('Error en el envío');
             }
-            
         } catch (error) {
             // Error
-            formMessage.textContent = 'Hubo un error al enviar tu solicitud. Por favor, intenta nuevamente o contáctanos directamente.';
-            formMessage.className = 'form-message error';
-            console.error('Error:', error);
+            showNotification('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.', 'error');
         } finally {
             // Restaurar estado normal
             submitButton.textContent = originalText;
             submitButton.disabled = false;
-            this.classList.remove('form-loading');
-            
-            // Ocultar mensaje después de 5 segundos
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 5000);
         }
     });
 }
 
-// Validación en tiempo real mejorada
-const formInputs = document.querySelectorAll('#contactForm input, #contactForm select, #contactForm textarea');
-formInputs.forEach(input => {
-    input.addEventListener('input', function() {
-        if (this.checkValidity()) {
-            this.style.borderColor = '#10b981';
-            this.style.boxShadow = '0 0 0 3px rgba(16, 185, 129, 0.1)';
-        } else {
-            this.style.borderColor = '#ef4444';
-            this.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
+// Función para mostrar notificaciones
+function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span>${message}</span>
+            <button class="notification-close">&times;</button>
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Animación de entrada
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    // Cerrar notificación
+    const closeBtn = notification.querySelector('.notification-close');
+    closeBtn.addEventListener('click', () => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    });
+    
+    // Auto-cerrar después de 5 segundos
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
         }
-    });
-    
-    input.addEventListener('blur', function() {
-        this.style.boxShadow = 'none';
-    });
-});
+    }, 5000);
+}
 
-// Cambiar estilo de navbar al hacer scroll (mejorado)
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.backdropFilter = 'blur(10px)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
-    } else {
-        navbar.style.background = 'var(--color-blanco)';
-        navbar.style.backdropFilter = 'none';
-        navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+// Estilos para notificaciones (se añaden dinámicamente)
+const notificationStyles = `
+.notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-left: 4px solid #10b981;
+    transform: translateX(400px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 10000;
+    max-width: 400px;
+}
+
+.notification.error {
+    border-left-color: #ef4444;
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #64748b;
+    line-height: 1;
+}
+
+.notification-close:hover {
+    color: #374151;
+}
+`;
+
+const styleSheet = document.createElement('style');
+styleSheet.textContent = notificationStyles;
+document.head.appendChild(styleSheet);
+
+// Efecto de partículas en el hero (simplificado)
+function createParticles() {
+    const canvas = document.getElementById('hero-canvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    const particles = [];
+    const particleCount = 30;
+    
+    for (let i = 0; i < particleCount; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 2 + 1,
+            speedX: Math.random() * 0.5 - 0.25,
+            speedY: Math.random() * 0.5 - 0.25,
+            opacity: Math.random() * 0.5 + 0.2
+        });
+    }
+    
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles.forEach(particle => {
+            ctx.beginPath();
+            ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${particle.opacity})`;
+            ctx.fill();
+            
+            particle.x += particle.speedX;
+            particle.y += particle.speedY;
+            
+            if (particle.x > canvas.width) particle.x = 0;
+            if (particle.x < 0) particle.x = canvas.width;
+            if (particle.y > canvas.height) particle.y = 0;
+            if (particle.y < 0) particle.y = canvas.height;
+        });
+        
+        requestAnimationFrame(animateParticles);
+    }
+    
+    animateParticles();
+}
+
+// Inicializar partículas cuando la página carga
+window.addEventListener('load', createParticles);
+
+// Reiniciar animaciones al redimensionar
+window.addEventListener('resize', () => {
+    const canvas = document.getElementById('hero-canvas');
+    if (canvas) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     }
 });
 
-// Ajuste inicial del hero section
+// Inicialización final cuando el DOM está listo
 document.addEventListener('DOMContentLoaded', function() {
-    const hero = document.querySelector('.hero');
-    const navbar = document.querySelector('.navbar');
+    console.log('BidSmart - Sistema de búsqueda de licitaciones cargado correctamente');
     
-    // Ajuste inicial
-    if (hero && navbar) {
-        const navbarHeight = navbar.offsetHeight;
-        hero.style.marginTop = `-${navbarHeight}px`;
-        document.querySelector('.hero-content h1').style.marginTop = `${navbarHeight}px`;
-    }
-    
-    // Animación inicial escalonada para elementos del hero
+    // Añadir clase loaded al body para transiciones CSS
     setTimeout(() => {
-        document.querySelector('.hero-content h1').style.opacity = '1';
-        document.querySelector('.hero-content h1').style.transform = 'translateY(0)';
-    }, 300);
-    
-    setTimeout(() => {
-        document.querySelector('.hero-content p').style.opacity = '1';
-        document.querySelector('.hero-content p').style.transform = 'translateY(0)';
-    }, 600);
-    
-    setTimeout(() => {
-        document.querySelector('.hero-buttons').style.opacity = '1';
-        document.querySelector('.hero-buttons').style.transform = 'translateY(0)';
-    }, 900);
+        document.body.classList.add('loaded');
+    }, 1000);
 });
-
