@@ -507,9 +507,9 @@ body {
 
 
 .detail-row {
-    display: flex; /* Mantenemos flex para que label y value estén en la misma línea */
-    /* ELIMINAR: justify-content: space-between; */
-    align-items: flex-start;
+    display: flex; 
+    /* Eliminamos justify-content para que todo se pegue a la izquierda */
+    align-items: flex-start; 
     padding: 6px 0;
     border-bottom: 1px solid #f1f5f9;
     gap: 5px; /* Espacio reducido entre la etiqueta y el valor */
@@ -523,23 +523,24 @@ body {
 /* Estilos ajustados para que las etiquetas y valores fluyan en el mismo espacio */
 
 .detail-row .label {
-    color: var(--text); /* Color de texto más oscuro para que resalte */
+    color: var(--text); 
     font-size: 0.8rem; 
-    font-weight: 700; /* La etiqueta es fuerte, como en el ejemplo del email */
-    text-transform: none; /* CLAVE: Eliminar las mayúsculas forzadas */
+    font-weight: 700; /* Hacemos la etiqueta fuerte */
+    text-transform: none; /* Quitamos la transformación CSS */
     text-align: left;
     line-height: 1.2;
     flex-shrink: 0;
+    margin-right: 5px; /* Añade un pequeño margen a la derecha de la etiqueta */
 }
 
 /* Modificación para el valor */
 .detail-row .value {
-    color: var(--text); /* Color de texto más oscuro para el valor */
-    font-size: 0.8rem;
-    font-weight: 400; /* El valor debe ser texto normal (excepto si es urgente/highlight) */
-    text-align: left; /* CLAVE: Alinear a la izquierda, pegado a la etiqueta */
+    color: var(--text); /* Usar variable para color oscuro */
+    font-size: 0.8rem; /* Tamaño de fuente ligeramente más pequeño */
+    font-weight: 400; /* Texto normal */
+    text-align: left; /* Alinear a la izquierda para seguir a la etiqueta */
     line-height: 1.2;
-    white-space: normal; /* Permitir que el texto largo envuelva si es necesario */
+    white-space: normal; /* CLAVE: Permitir que el texto largo se envuelva */
     flex-shrink: 1;
 }
 
