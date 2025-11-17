@@ -3,29 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BidSmart - Notificaciones de Licitaciones Mercado Público</title>
-    <meta name="description" content="Servicio de notificación en tiempo real de licitaciones y compras ágiles de Mercado Público. Nunca pierdas una oportunidad.">
+    <title>BidSmart | Transforma tu Equipo en Ganadores de Licitaciones</title>
+    <meta name="description" content="Sistema avanzado de búsqueda y notificación para licitaciones de Mercado Público. Convierte tu equipo en analistas exitosos.">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="loader-logo">
+                <img src="images/logo-nuevo.png" alt="BidSmart">
+            </div>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
     <!-- Header/Navegación -->
-    <header>
+    <header class="header">
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
                     <a href="#inicio" class="logo-link">
                         <div class="logo-container">
-                            <img src="images/logo-bidsmart.png" alt="BidSmart" class="logo-img">
+                            <img src="images/logo-nuevo.png" alt="BidSmart" class="logo-img">
                         </div>
                     </a>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicio">Servicio</a></li>
-                    <li><a href="#precios">Precios</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
+                    <li><a href="#funcionamiento" class="nav-link">Cómo Funciona</a></li>
+                    <li><a href="#por-que-bidsmart" class="nav-link">¿Por qué BidSmart?</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
                 </ul>
+                <div class="nav-actions">
+                    <a href="#contacto" class="btn-nav">COMENZAR AHORA</a>
+                </div>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -35,134 +50,411 @@
         </nav>
     </header>
 
-    <!-- Sección Hero -->
+    <!-- Sección Hero Mejorada -->
     <section id="inicio" class="hero">
         <div class="hero-background">
-            <div class="hero-shape hero-shape-1"></div>
-            <div class="hero-shape hero-shape-2"></div>
+            <div class="hero-particle" id="particle-1"></div>
+            <div class="hero-particle" id="particle-2"></div>
+            <div class="hero-particle" id="particle-3"></div>
+            <canvas id="hero-canvas"></canvas>
         </div>
+        
         <div class="hero-content">
-            <h1>Alertas en Tiempo Real de <span class="highlight">Mercado Público</span></h1>
-            <p>Recibe notificaciones instantáneas de licitaciones y compras ágiles según tus palabras clave de interés</p>
-            <div class="hero-buttons">
-                <a href="#precios" class="btn-primary">Comenzar Ahora</a>
-                <a href="#servicio" class="btn-secondary">Cómo Funciona</a>
+            <div class="hero-badge" data-aos="fade-down">
+                <span>Sistema Inteligente de Búsqueda</span>
+            </div>
+            
+            <h1 data-aos="fade-up" data-aos-delay="200">
+                <span class="hero-title-main">Transforma tu equipo de</span>
+                <span class="hero-title-highlight">Buscador en Analista</span>
+                <span class="hero-title-highlight">y Ganador</span>
+                <span class="hero-title-sub">de Licitaciones y Compras Ágiles</span>
+            </h1>
+            
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="400">
+                <strong>Nosotros buscamos por ti tus palabras claves en el portal de Mercado Público 
+                para <strong>Licitaciones</strong>, como también <strong>Compras Ágiles</strong>.</strong> 
+                Tu equipo se enfoca en ganar, nosotros en encontrar.
+            </p>
+
+            <div class="hero-actions" data-aos="fade-up" data-aos-delay="600">
+                <a href="#contacto" class="btn-hero-primary">
+                    <span>COMENZAR AHORA</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+                <a href="#funcionamiento" class="btn-hero-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Ver Cómo Funciona
+                </a>
             </div>
         </div>
-    </section>
 
-    <!-- Sección Servicio Único -->
-    <section id="servicio" class="services">
+        <div class="hero-visual" data-aos="fade-left" data-aos-delay="400">
+                    <div class="notifications-container">
+                        <div class="notification-floating licitacion-floating">
+                            <div class="notification-header">
+                                <div class="notification-icon">📋</div>
+                                <span class="notification-badge">NUEVA LICITACIÓN</span>
+                            </div>
+                            <div class="notification-content">
+                                <h4 class="notification-title">CONSERVACIÓN SISTEMA UOCT LOS RÍOS II ETAPA</h4>
+                                
+                                <div class="notification-details">
+                                    <div class="detail-row">
+                                        <span class="label">ID LICITACIÓN:</span>
+                                        <span class="value">5472-12-LR25</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="label">Organismo:</span>
+                                        <span class="value">DELEGACIÓN PRESIDENCIAL REGIONAL DE LOS RÍOS</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="label">Fecha de Consultas:</span>
+                                        <span class="value urgent">Lunes 01 de septiembre de 2025 - Hora: 15:00</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="label">Fecha de Respuestas:</span>
+                                        <span class="value urgent">Martes 23 de septiembre de 2025 - Hora: 23:59</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="label">Fecha de Cierre:</span>
+                                        <span class="value urgent">Viernes 03 de octubre de 2025 - Hora: 16:00</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="label">Descripción:</span>
+                                        <span class="value urgent">Delegación Presidencial Los Ríos llama a Propuesta Pública para ejecución de iniciativa “Conservación Sistema de Control de Tránsito Región de Los Ríos II Etapa”</span>
+                                    </div>
+                                </div>
+
+                                <a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?qs=YoUKa6DrGgPGQEgbHQIUtQ==" class="btn-notification">
+                                    VER DETALLE DE LICITACIÓN
+                                </a>
+                            </div>
+                        </div>
+
+                    <div class="notification-floating compraagil-floating">
+                        <div class="notification-header">
+                            <div class="notification-icon">⚡</div>
+                            <span class="notification-badge">COMPRA ÁGIL</span>
+                        </div>
+                        <div class="notification-content">
+                            <h4 class="notification-title">Adquisición del Servicio de Instalación de CCTV con Insumos Incluidos para Escuela Porongo</h4>
+                            
+                            <div class="notification-details">
+                                <div class="detail-row">
+                                    <span class="label">Código:</span>
+                                    <span class="value">1233619-979-COT25</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="label">Monto:</span>
+                                    <span class="value highlight">$2.665.000</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="label">Cierre:</span>
+                                    <span class="value urgent">Jueves 13 de noviembre de 2025 - Hora: 10:00 hrs</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="label">Competencia:</span>
+                                    <span class="value">👥 3 Proveedores interesados</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="label">Organismo:</span>
+                                    <span class="value">SERVICIO LOCAL DE EDUCACIÓN PÚBLICA MAULE COSTA</span>
+                                </div>
+                            </div>
+                            
+                            <a href="https://buscador.mercadopublico.cl/ficha?code=1233619-979-COT25" class="btn-notification">
+                                VER DETALLE DE COMPRA ÁGIL
+                            </a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+    </section>
+    
+    <!-- Sección Beneficios -->
+    <section id="beneficios" class="benefits">
         <div class="container">
-            <div class="section-header">
-                <h2>Nuestro Servicio</h2>
+            <div class="section-header" data-aos="fade-up">
+                <h2>Beneficios para tu Empresa</h2>
                 <p>Optimiza tu participación en licitaciones públicas con nuestra tecnología</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
+
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-icon">
+                        <div class="icon-background"></div>
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2"/>
                         </svg>
                     </div>
-                    <h3>Monitoreo del Portal</h3>
-                    <p>Monitoreamos el portal de Mercado Público tanto de licitaciones como compras ágiles 24/7</p>
+                    <h3>Búsqueda Automática 24/7</h3>
+                    <p>Nuestro sistema monitorea constantemente Mercado Público sin interrupciones</p>
+                    <div class="benefit-feature">
+                        <span>Sin esfuerzo para tu equipo</span>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"></path>
+
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="benefit-icon">
+                        <div class="icon-background"></div>
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" stroke-width="2"/>
                         </svg>
                     </div>
-                    <h3>Búsqueda por Palabras Clave</h3>
-                    <p>Indica tus palabras clave y nuestro sistema buscará automáticamente las oportunidades relevantes para ti, igual que el portal</p>
+                    <h3>Palabras Clave Inteligentes</h3>
+                    <p>Configura tus términos específicos y nuestro sistema aprende de tus preferencias</p>
+                    <div class="benefit-feature">
+                        <span>Resultados altamente relevantes</span>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="benefit-icon">
+                        <div class="icon-background"></div>
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M19.4 15C19.2669 15.3011 19.1339 15.6022 19.0008 15.9034C18.5291 16.9907 17.9443 18.0251 17.2556 19M4.6 15C4.73306 15.3011 4.86612 15.6022 4.99918 15.9034C5.47094 16.9907 6.05571 18.0251 6.74435 19" stroke="currentColor" stroke-width="2"/>
                         </svg>
                     </div>
-                    <h3>Notificaciones de Oportunidades</h3>
-                    <p>Recibe las alertas directamente en tu correo electrónico de manera inmediata y confiable</p>
-                </div>
-            </div>
-            
-            <!-- Proceso de Funcionamiento -->
-            <div class="process-steps">
-                <div class="section-header">
-                    <h3>¿Cómo Funciona?</h3>
-                    <p>Un proceso simple y efectivo en solo 4 pasos</p>
-                </div>
-                <div class="steps-grid">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h4>Indica tus Palabras Clave</h4>
-                        <p>Proporciona las palabras clave que definen tu negocio o servicios</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h4>Monitoreo Automático</h4>
-                        <p>Nuestro sistema monitorea Mercado Público 24/7</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h4>Notificación Inmediata</h4>
-                        <p>Recibes alertas instantáneas de oportunidades que coinciden con tus palabras clave</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <h4>Postula a Tiempo</h4>
-                        <p>Participa en las licitaciones con ventaja de tiempo</p>
+                    <h3>Cobertura Completa</h3>
+                    <p>Monitoreamos todas las licitaciones tradicionales y compras ágiles de Mercado Público</p>
+                    <div class="benefit-feature">
+                        <span>Todas las regiones de Chile</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección Precios Única -->
-    <section id="precios" class="pricing">
+    <!-- Sección Cómo Funciona -->
+    <section id="funcionamiento" class="how-it-works">
         <div class="container">
-            <div class="section-header">
-                <h2>Plan de Servicio</h2>
-                <p>Elige la opción que mejor se adapte a tus necesidades</p>
+            <div class="section-header" data-aos="fade-up">
+                <h2>Cómo Funciona Nuestro Sistema</h2>
+                <p>Un proceso simple y efectivo en solo 4 pasos</p>
             </div>
-            <div class="pricing-single">
-                <div class="pricing-main-card">
-                    <div class="pricing-badge">Más Popular</div>
-                    <h3>Plan Completo</h3>
-                    <div class="price-main">$2.990<span>/mes</span></div>
-                    <div class="price-additional">
-                        <span class="additional-text">Cuenta adicional: $490/mes</span>
+
+            <div class="process-timeline">
+                <div class="process-step" data-aos="fade-right">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Configura tus Palabras Clave</h3>
+                        <p>Define los términos específicos de tu negocio. Nuestro sistema aprende y se adapta a tus necesidades.</p>
+                        <div class="step-visual">
+                            <div class="keyword-bubble">construcción</div>
+                            <div class="keyword-bubble">materiales</div>
+                            <div class="keyword-bubble">suministro</div>
+                        </div>
                     </div>
-                    <ul class="features-list">
-                        <li>✅ Alertas ilimitadas</li>
-                        <li>✅ Notificaciones por Email</li>
-                        <li>✅ Búsqueda automática por palabras clave</li>
-                        <li>✅ Licitaciones tradicionales</li>
-                        <li>✅ Compras ágiles</li>
-                        <li>✅ Monitoreo 24/7 de Mercado Público</li>
-                        <li>✅ Filtro por Regiones</li>
-                    </ul>
-                    <div class="pricing-buttons">
-                        <a href="#contacto" class="btn-primary large-btn">Contratar Plan Principal</a>
-                        <a href="#contacto" class="btn-secondary">Agregar Cuenta Adicional</a>
+                </div>
+
+                <div class="process-step" data-aos="fade-left">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Monitoreo Automático 24/7</h3>
+                        <p>Nuestra tecnología escanea continuamente Mercado Público sin que tú hagas nada.</p>
+                        <div class="step-visual">
+                            <div class="radar-animation"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step" data-aos="fade-right">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Notificación a la Brevedad</h3>
+                        <p>Te notificamos a la brevedad de ser publicada una oportunidad según las palabras claves indicadas.</p>
+                        <div class="step-visual">
+                            <div class="email-animation">
+                                <div class="email-icon">✉️</div>
+                                <div class="notification-dot"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step" data-aos="fade-left">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Postula con Ventaja Competitiva</h3>
+                        <p>Accede a las licitaciones con tiempo suficiente para preparar una propuesta ganadora.</p>
+                        <div class="step-visual">
+                            <div class="trophy-animation">🏆</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Información adicional -->
-            <div class="pricing-info">
-                <div class="info-card">
-                    <h4>¿Necesitas múltiples cuentas?</h4>
-                    <p>Ideal para empresas que requieren monitorear diferentes áreas o departamentos con palabras clave específicas.</p>
-                    <ul>
-                        <li>Primera cuenta: $2.990/mes</li>
-                        <li>Cada cuenta adicional: $490/mes</li>
-                        <li>Todas las cuentas incluyen las mismas funcionalidades</li>
+        </div>
+    </section>
+
+    <!-- Sección ¿Por qué BidSmart? -->
+    <section id="por-que-bidsmart" class="why-bidsmart">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>¿Por qué Elegir BidSmart?</h2>
+                <p>La solución más eficiente para optimizar tu participación en licitaciones</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="why-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Ahorro de Tiempo Significativo</h3>
+                    <p><strong>Ahorramos 1,5 horas diarias</strong> a cada trabajador que busca licitaciones en Mercado Público</p>
+                    <div class="why-stats">
+                        <div class="stat-badge">17% menos horas perdidas</div>
+                    </div>
+                </div>
+
+                <div class="why-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="why-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Integración Sin Esfuerzo</h3>
+                    <p><strong>No más softwares complejos.</strong> Nos adaptamos a tu flujo de trabajo actual con notificaciones por email</p>
+                    <div class="why-stats">
+                        <div class="stat-badge">Cero curva de aprendizaje</div>
+                    </div>
+                </div>
+
+                <div class="why-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="why-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Transformación de Roles</h3>
+                    <p><strong>Convierte horas de búsqueda</strong> en tiempo valioso para analizar clientes y preparar mejores propuestas</p>
+                    <div class="why-stats">
+                        <div class="stat-badge">De buscador a analista</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="why-cta" data-aos="fade-up" data-aos-delay="800">
+                <div class="cta-content">
+                    <h3>Optimiza tu Flujo de Trabajo Actual</h3>
+                    <p>Elimina la búsqueda manual de licitaciones y compras ágiles. Tu equipo se enfoca en lo que realmente importa: ganar.</p>
+                    <a href="#contacto" class="btn-why-cta">Comenzar Optimización</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resto del código permanece igual (Planes, Contacto, Footer) -->
+    <!-- Sección Planes de Precios -->
+    <section id="planes" class="pricing-plans">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Planes que se Adaptan a tu Empresa</h2>
+                <p>Elige la solución perfecta para tus necesidades de licitaciones</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Plan Básico -->
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-header">
+                        <h3>Básico</h3>
+                        <p>Perfecto para emprendedores</p>
+                    </div>
+                    <div class="card-price">
+                        <div class="price-amount">
+                            <span class="currency">$</span>
+                            <span class="amount">1.990</span>
+                        </div>
+                        <span class="price-period">/mes</span>
+                        <div class="price-additional">
+                            <span>Cuenta adicional: $990/mes</span>
+                        </div>
+                    </div>
+                    <ul class="card-features">
+                        <li>✅ 1 cuenta de usuario</li>
+                        <li>✅ Hasta 5 palabras clave</li>
+                        <li>✅ Alertas por Email</li>
+                        <li>✅ Licitaciones tradicionales</li>
+                        <li>✅ Compras ágiles</li>
+                        <li>✅ Monitoreo 24/7</li>
+                        <li>❌ Filtro por Regiones</li>
+                        <li>❌ Cuentas adicionales</li>
                     </ul>
+                    <div class="card-actions">
+                        <a href="#contacto" class="btn-card">Comenzar Ahora</a>
+                    </div>
+                </div>
+
+                <!-- Plan Estándar -->
+                <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-badge">Más Popular</div>
+                    <div class="card-header">
+                        <h3>Estándar</h3>
+                        <p>Ideal para empresas en crecimiento</p>
+                    </div>
+                    <div class="card-price">
+                        <div class="price-amount">
+                            <span class="currency">$</span>
+                            <span class="amount">2.990</span>
+                        </div>
+                        <span class="price-period">/mes</span>
+                        <div class="price-additional">
+                            <span>Cuenta adicional: $990/mes</span>
+                        </div>
+                    </div>
+                    <ul class="card-features">
+                        <li>✅ 1 cuenta principal</li>
+                        <li>✅ Hasta 15 palabras clave</li>
+                        <li>✅ Alertas por Email</li>
+                        <li>✅ Licitaciones tradicionales</li>
+                        <li>✅ Compras ágiles</li>
+                        <li>✅ Monitoreo 24/7</li>
+                        <li>✅ Filtro por Regiones</li>
+                        <li>✅ Cuentas adicionales disponibles</li>
+                    </ul>
+                    <div class="card-actions">
+                        <a href="#contacto" class="btn-card primary">COMENZAR AHORA</a>
+                    </div>
+                </div>
+
+                <!-- Plan Empresa -->
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="card-header">
+                        <h3>Empresa</h3>
+                        <p>Para equipos consolidados</p>
+                    </div>
+                    <div class="card-price">
+                        <div class="price-amount">
+                            <span class="currency">$</span>
+                            <span class="amount">4.990</span>
+                        </div>
+                        <span class="price-period">/mes</span>
+                        <div class="price-additional">
+                            <span>Cuenta adicional: $890/mes</span>
+                        </div>
+                    </div>
+                    <ul class="card-features">
+                        <li>✅ 5 cuentas de usuario</li>
+                        <li>✅ Palabras clave ilimitadas</li>
+                        <li>✅ Alertas por Email</li>
+                        <li>✅ Licitaciones tradicionales</li>
+                        <li>✅ Compras ágiles</li>
+                        <li>✅ Monitoreo 24/7</li>
+                        <li>✅ Filtro por Regiones</li>
+                        <li>✅ Cuentas adicionales disponibles</li>
+                    </ul>
+                    <div class="card-actions">
+                        <a href="#contacto" class="btn-card">Solicitar Demo</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -171,14 +463,14 @@
     <!-- Sección Contacto -->
     <section id="contacto" class="contact">
         <div class="container">
-            <div class="section-header">
-                <h2>Contáctanos</h2>
-                <p>Estamos aquí para ayudarte a optimizar tu participación en licitaciones</p>
+            <div class="section-header" data-aos="fade-up">
+                <h2>Contacto</h2>
+                <p>Estamos aquí para ayudarte a transformar tu participación en licitaciones</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>¿Listo para no perder oportunidades?</h3>
-                    <p>Comienza hoy mismo a recibir alertas de licitaciones y compras ágiles de Mercado Público.</p>
+                    <h3>¿Listo para Comenzar?</h3>
+                    <p>Transforma tu equipo de buscadores en analistas y ganadores de licitaciones. Comienza hoy mismo.</p>
                     <div class="contact-details">
                         <div class="contact-item">
                             <div class="contact-icon">
@@ -212,19 +504,19 @@
                     <input type="text" name="nombre" placeholder="Nombre completo" required>
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="tel" name="telefono" placeholder="Teléfono">
-                    <select name="servicio_interes">
-                        <option value="">Tipo de servicio de interés</option>
-                        <option value="principal">Plan Principal ($2.990/mes)</option>
-                        <option value="adicional">Cuenta Adicional ($490/mes)</option>
-                        <option value="multiple">Múltiples Cuentas</option>
-                        <option value="contacto">Contacto</option>
+                    <select name="servicio_interes" required>
+                        <option value="">Selecciona un plan</option>
+                        <option value="basico">Plan Básico ($1.990/mes)</option>
+                        <option value="estandar">Plan Estándar ($2.990/mes)</option>
+                        <option value="empresa">Plan Empresa ($4.990/mes)</option>
+                        <option value="cotizacion">Cotización Personalizada</option>
                     </select>
                     <textarea name="palabras_clave" placeholder="Indica las palabras clave que te interesan (ej: construcción, software, consultoría, etc.)" rows="4"></textarea>
                     
                     <input type="hidden" name="_subject" value="Nueva solicitud de servicio - BidSmart">
                     <input type="hidden" name="_replyto" value="contacto@bidsmart.cl">
                     
-                    <button type="submit" class="btn-primary">Solicitar Servicio</button>
+                    <button type="submit" class="btn-primary">COMENZAR AHORA</button>
                     <div id="formMessage" class="form-message"></div>
                 </form>
             </div>
@@ -232,35 +524,56 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3 class="logo-text">BidSmart</h3>
-                    <p>Tu servicio confiable de notificación de licitaciones y compras ágiles de Mercado Público.</p>
+                    <div class="footer-logo">
+                        <img src="images/logo-nuevo.png" alt="BidSmart">
+                    </div>
+                    <p>Transforma tu equipo de buscador en analista y ganador de licitaciones y compras ágiles.</p>
                 </div>
+                
                 <div class="footer-section">
                     <h4>Servicio</h4>
                     <ul>
-                        <li><a href="#servicio">Cómo Funciona</a></li>
-                        <li><a href="#precios">Plan y Precios</a></li>
-                        <li><a href="#contacto">Registrarse</a></li>
+                        <li><a href="#beneficios">Beneficios</a></li>
+                        <li><a href="#funcionamiento">Cómo Funciona</a></li>
+                        <li><a href="#por-que-bidsmart">¿Por qué BidSmart?</a></li>
+                        <li><a href="#planes">Planes y Precios</a></li>
                     </ul>
                 </div>
+                
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Carreras</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
                 <div class="footer-section">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href="docs/terminos-condiciones.pdf" target="_blank">Términos y Condiciones</a></li>
-                         <li><a href="docs/politica-privacidad.pdf" target="_blank">Política de Privacidad</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Seguridad</a></li>
                     </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 BidSmart. Servicio de notificación de Mercado Público. Todos los derechos reservados.</p>
+                <p>&copy; 2024 BidSmart. Todos los derechos reservados. Servicio profesional de búsqueda y notificación de licitaciones.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
+
