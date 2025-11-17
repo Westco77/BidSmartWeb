@@ -467,7 +467,10 @@ body {
 /* Contenido de notificación */
 .notification-content {
     padding: 20px;
-    display: block; /* Asegura el flujo normal de bloques */
+    display: block !important; /* CLAVE: Asegurar que es un bloque y anular cualquier conflicto flex */
+    /* Añadir estilos para asegurar la separación de los elementos internos */
+    box-sizing: border-box !important;
+    width: 100% !important;
 }
 
 /* Estilo para el botón de Ver Detalle */
@@ -1534,3 +1537,4 @@ body {
 .notification-floating {
     width: 380px !important; /* Aumentar ancho para espacio */
 }
+
