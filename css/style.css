@@ -104,7 +104,7 @@ body {
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -576,7 +576,7 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 .section-header {
@@ -603,7 +603,7 @@ body {
 
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
 
@@ -1365,15 +1365,15 @@ body {
   }
   
   .hero-title-main {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
   .hero-title-highlight {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   
   .hero-title-sub {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .section-header h2 {
@@ -1400,6 +1400,38 @@ body {
   
   .why-cta {
     padding: 2rem;
+  }
+  
+/* Ajuste de Título Principal */
+  .hero-title-main {
+    font-size: 1.8rem; /* Reducción para móviles */
+  }
+  
+  /* Ajuste de Título Destacado */
+  .hero-title-highlight {
+    font-size: 2rem; /* Reducción para móviles */
+  }
+  
+  /* Ajuste de Subtítulo */
+  .hero-title-sub {
+    font-size: 1rem; /* Reducción para móviles */
+  }
+  
+  /* Ajuste de la Descripción */
+  .hero-description {
+    font-size: 1rem;
+    padding: 0 1rem; /* Añadir padding para evitar que el texto toque los bordes */
+  }
+
+  /* Centrar acciones en móvil */
+  .hero-actions {
+    justify-content: center;
+  }
+  
+  /* Asegurar que el contenido del Hero esté centrado */
+  .hero-content {
+      text-align: center;
+      padding: 0 1rem;
   }
 }
 
@@ -1537,4 +1569,5 @@ body {
 .notification-floating {
     width: 380px !important; /* Aumentar ancho para espacio */
 }
+
 
