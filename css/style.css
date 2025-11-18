@@ -112,7 +112,7 @@ body {
 }
 
 .nav-logo img {
-  height: 45px;
+  height: 65px;
   transition: transform 0.3s ease;
 }
 
@@ -1364,18 +1364,6 @@ body {
     display: none;
   }
   
-  .hero-title-main {
-    font-size: 1.8rem;
-  }
-  
-  .hero-title-highlight {
-    font-size: 2rem;
-  }
-  
-  .hero-title-sub {
-    font-size: 1rem;
-  }
-  
   .section-header h2 {
     font-size: 2.2rem;
   }
@@ -1466,8 +1454,9 @@ body {
     }
     
     .hero-content {
-        margin-left: 0;
+        margin-left: 0 !important;
         text-align: center;
+        max-width: 100%;
     }
 }
 
@@ -1569,5 +1558,3 @@ body {
 .notification-floating {
     width: 380px !important; /* Aumentar ancho para espacio */
 }
-
-
