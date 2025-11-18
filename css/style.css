@@ -764,6 +764,8 @@ body {
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  flex-wrap: wrap; /* CLAVE: Permitir que las burbujas pasen a la línea siguiente */
+  justify-content: flex-start; /* Asegurar que se alineen a la izquierda */
 }
 
 .keyword-bubble {
@@ -1558,3 +1560,4 @@ body {
 .notification-floating {
     width: 380px !important; /* Aumentar ancho para espacio */
 }
+
