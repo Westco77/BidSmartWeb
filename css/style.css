@@ -563,11 +563,11 @@ body {
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
-    .hero-visual {
-        display: none;
-    }
-}
+/*@media (max-width: 1024px) {
+/*    .hero-visual {
+/*        display: none;
+/*    }
+/* }
 
 /* === BENEFITS SECTION === */
 .benefits {
@@ -1562,5 +1562,6 @@ body {
 .notification-floating {
     width: 380px !important; /* Aumentar ancho para espacio */
 }
+
 
 
