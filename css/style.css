@@ -27,8 +27,10 @@
 }
 
 html {
-  scroll-behavior: smooth;
-  font-size: 16px;
+    overflow-x: hidden !important; /* CLAVE: Asegurar que la raíz html también lo oculte */
+    width: 100% !important;
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
@@ -36,8 +38,8 @@ body {
   line-height: 1.6;
   color: var(--text);
   background: var(--white);
-  overflow-x: hidden;
-  /* Cursor normal eliminado el personalizado */
+  overflow-x: hidden !important; /* CLAVE: Forzar a que el scroll horizontal se oculte */
+  width: 100% !important; /* Asegurar que el cuerpo no pueda ser más ancho que la pantalla */
 }
 
 /* === PRELOADER === */
@@ -200,7 +202,7 @@ body {
   background: var(--gradient-hero);
   color: var(--white);
   position: relative;
-  overflow: hidden; /* ← CAMBIADO A hidden */
+  overflow: hidden !important;
   display: flex;
   align-items: center;
   padding: 120px 0 80px;
@@ -1560,4 +1562,5 @@ body {
 .notification-floating {
     width: 380px !important; /* Aumentar ancho para espacio */
 }
+
 
